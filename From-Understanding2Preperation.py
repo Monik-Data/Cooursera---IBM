@@ -1,5 +1,5 @@
 !python -V
-print ("Hello world")
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -14,16 +14,14 @@ recipes.head()
 recipes.shape
 ingredients = list(recipes.columns.values)
 
-
 print([match.group(0) for ingredient in ingredients for match in [(re.compile(".*(rice).*")).search(ingredient)] if match])
 print([match.group(0) for ingredient in ingredients for match in [(re.compile(".*(wasabi).*")).search(ingredient)] if match])
 print([match.group(0) for ingredient in ingredients for match in [(re.compile(".*(soy).*")).search(ingredient)] if match])
 
-
 recipes["country"].value_counts() # frequency table
 
-
 column_names = recipes.columns.values
+column_names
 column_names[0] = "cuisine"
 recipes.columns = column_names
 
@@ -57,7 +55,6 @@ recipes.loc[recipes["cuisine"] == "turkey", "cuisine"] = "turkish"
 recipes.loc[recipes["cuisine"] == "vietnam", "cuisine"] = "vietnamese"
 recipes.loc[recipes["cuisine"] == "uk-and-ireland", "cuisine"] = "uk-and-irish"
 recipes.loc[recipes["cuisine"] == "irish", "cuisine"] = "uk-and-irish"
-
 
 # get list of cuisines to keep
 recipes_counts = recipes["cuisine"].value_counts()
